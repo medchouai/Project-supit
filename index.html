@@ -1,27 +1,33 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/home_style.css">
   <title>Algebra University College</title>
 </head>
-<body>
 
+<body>
 
   <div id="navbar-placeholder"></div>
 
-<script>
-  fetch("pages/navbar.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar-placeholder").innerHTML = html;
+  <script src="js/navbar.js"></script>
+  <script>
+    loadNavbar();
+  </script>
 
-      });
-</script>
-<section>
-  <h1>Home Page</h1>
-  <p>Placeholder text for home page…</p>
-</section>
+  <section>
+    <video class="video-bg" autoplay muted loop>
+      <source src="./video/typingOnlaptop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="text-overlay">
+      Welcome to our website
+    </div>
+  </section>
 </body>
+
 </html>

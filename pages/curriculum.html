@@ -1,25 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum - Algebra University College</title>
   <link rel="stylesheet" href="../css/styles.css">
-  <title>Algebra University College- Curriculum</title>
+  <link rel="stylesheet" href="../css/curriculum_style.css">
 </head>
+
 <body>
 
-<div id="navbar-placeholder"></div>
-<script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar-placeholder").innerHTML = html;
+  <div id="navbar-placeholder"></div>
+  <script src="../js/navbar.js"></script>
+  <script>
+    loadNavbar();
+  </script>
 
-      });
-</script>
-<section>
-  <h1>Curriculum</h1>
-  <p>Placeholder text for curriculum page</p>
-</section>
+  <main>
+    <div class="curriculum-container">
+      <div class="curriculum-header">
+        <h1>Curriculum Overview</h1>
+        <p>Explore our courses and build your study plan.</p>
+
+        <div class="search-container">
+          <input type="text" id="course-search" class="search-input"
+            placeholder="Search for a course (e.g., 'Engleski Jezik')...">
+          <div id="autocomplete-list" class="autocomplete-items"></div>
+        </div>
+      </div>
+
+      <!-- Selected Course Details -->
+      <div id="course-details" class="course-details-card"></div>
+
+      <!-- Curriculum Table -->
+      <div class="table-container">
+        <table id="curriculum-table" class="curriculum-table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>ECTS</th>
+              <th>Hours</th>
+              <th>Semester</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="5" style="text-align:center; color:#999;">No courses selected</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Totals</td>
+              <td id="total-ects">0</td>
+              <td id="total-hours">0</td>
+              <td colspan="2"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/curriculum.js"></script>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/footer.js"></script>
+  <script>loadFooter();</script>
+
 </body>
+
 </html>

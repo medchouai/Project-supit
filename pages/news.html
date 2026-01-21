@@ -1,26 +1,51 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/news_style.css">
   <title>Algebra University College- News</title>
 </head>
+
 <body>
 
-<div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder"></div>
 
-<script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar-placeholder").innerHTML = html;
+  <script src="../js/navbar.js"></script>
+  <script>
+    loadNavbar();
+  </script>
 
-      });
-</script>
-<section>
-  <h1>News</h1>
-  <p>Placeholder text for news page</p>
-</section>
+  <section id="news">
+    <h1>Latest News</h1>
+
+    <div class="news-grid">
+      <a href="articles/article1.html" class="news-bubble">
+        <div class="bubble-overlay">
+          <h2>Student Josip Stanešić 12. je sistemaš svijeta</h2>
+        </div>
+      </a>
+
+      <a href="articles/article2.html" class="news-bubble bubble-2">
+        <div class="bubble-overlay">
+          <h2>Dobitnici ovogodišnjeg stipendijskog natječaja</h2>
+        </div>
+      </a>
+
+      <a href="articles/article3.html" class="news-bubble bubble-3">
+        <div class="bubble-overlay">
+          <h2>Algebra Junior organizira ljetne praznike</h2>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/footer.js"></script>
+  <script>loadFooter();</script>
+
 </body>
+
 </html>
