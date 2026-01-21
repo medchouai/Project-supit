@@ -1,25 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/styles.css">
   <title>Algebra University College- Contact</title>
 </head>
+
 <body>
 
-<div id="navbar-placeholder"></div>
-<script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar-placeholder").innerHTML = html;
+  <div id="navbar-placeholder"></div>
 
-      });
-</script>
-<section>
-  <h1>Contact</h1>
-  <p>Placeholder text for contact page</p>
-</section>
+  <script src="../js/navbar.js"></script>
+  <script>
+    loadNavbar();
+  </script>
+  <section>
+    <h1>Contact</h1>
+    <p>Placeholder text for contact page</p>
+  </section>
 </body>
+
 </html>

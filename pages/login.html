@@ -1,25 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Algebra University College</title>
   <link rel="stylesheet" href="../css/styles.css">
-  <title>Algebra University College- Login</title>
+  <link rel="stylesheet" href="../css/login_style.css">
 </head>
+
 <body>
 
-<div id="navbar-placeholder"></div>
-<script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar-placeholder").innerHTML = html;
+  <div id="navbar-placeholder"></div>
 
-      });
-</script>
-<section>
-  <h1>Login</h1>
-  <p>Placeholder text for login page</p>
-</section>
+  <main>
+    <div id="login-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <div>
+          <label for="login-username">Username:</label>
+          <input type="text" id="login-username" name="username" required>
+        </div>
+        <div>
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+        <p id="login-error" style="color: red; display: none;"></p>
+      </form>
+      <p>Not registered? <a href="#" id="show-register">Register here</a></p>
+    </div>
+
+    <div id="register-container" style="display: none;">
+      <h2>Register</h2>
+      <form id="register-form">
+        <div>
+          <label for="register-username">Username:</label>
+          <input type="text" id="register-username" name="username" required>
+        </div>
+        <div>
+          <label for="register-password">Password:</label>
+          <input type="password" id="register-password" name="password" required>
+        </div>
+        <button type="submit">Register</button>
+        <p id="register-error" style="color: red; display: none;"></p>
+      </form>
+      <p>Already registered? <a href="#" id="show-login">Login here</a></p>
+    </div>
+  </main>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    loadNavbar();
+    initLoginPage();
+  </script>
+
 </body>
+
 </html>
