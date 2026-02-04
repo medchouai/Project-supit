@@ -107,19 +107,18 @@ function updateNavbarAuth(isIndexPage) {
 
 /* Contact Modal Logic */
 function initContactModal() {
-  const contactLink = document.querySelector('[data-target="contact"]');
-  if (contactLink) {
-    contactLink.setAttribute('href', '#');
-    contactLink.addEventListener('click', (e) => {
+  const $contactLink = $('[data-target="contact"]');
+  if ($contactLink.length) {
+    $contactLink.attr('href', '#').on('click', function (e) {
       e.preventDefault();
       openContactModal();
     });
   }
 
-  const modal = document.getElementById('contact-modal');
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
+  const $modal = $('#contact-modal');
+  if ($modal.length) {
+    $modal.on('click', function (e) {
+      if (e.target === this) {
         closeContactModal();
       }
     });
@@ -127,20 +126,22 @@ function initContactModal() {
 }
 
 function openContactModal() {
-  const modal = document.getElementById('contact-modal');
-  if (modal) {
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  const $modal = $('#contact-modal');
+  if ($modal.length) {
+    $modal.fadeIn(800).css('display', 'flex').addClass('open');
+    $('body').css('overflow', 'hidden');
   }
 }
 
 function closeContactModal() {
-  const modal = document.getElementById('contact-modal');
-  if (modal) {
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-    document.getElementById('contact-form').reset();
-    document.getElementById('form-response').textContent = '';
+  const $modal = $('#contact-modal');
+  if ($modal.length) {
+    $modal.fadeOut(800, function () {
+      $(this).removeClass('open');
+      $('body').css('overflow', '');
+      $('#contact-form')[0].reset();
+      $('#form-response').text('');
+    });
   }
 }
 
@@ -150,23 +151,20 @@ function submitContactForm(e) {
   const responseDiv = document.getElementById('form-response');
   const submitBtn = document.getElementById('submit-btn');
 
-  const formData = {
-    FullName: form.FullName.value,
-    Email: form.Email.value,
-    Importance: form.Importance.value,
-    ReceiveNewsletter: form.ReceiveNewsletter.checked,
-    Message: form.Message.value
-  };
+  // Utiliser FormData au lieu de JSON
+  const formData = new FormData();
+  formData.append('FullName', form.FullName.value);
+  formData.append('Email', form.Email.value);
+  formData.append('Importance', form.Importance.value);
+  formData.append('ReceiveNewsletter', form.ReceiveNewsletter.checked);
+  formData.append('Message', form.Message.value);
 
   submitBtn.textContent = 'Sending...';
   submitBtn.disabled = true;
 
   fetch('https://www.fulek.com/mvc/supit/project-contact-form', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
+    body: formData  // Pas de Content-Type, il est automatique
   })
     .then(res => {
       const contentType = res.headers.get("content-type");
