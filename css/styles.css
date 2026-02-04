@@ -11,10 +11,6 @@ body {
   font-family: 'Outfit', Arial, sans-serif;
 }
 
-main {
-  margin-top: 80px;
-  padding: 40px 20px;
-}
 
 /* ===== HEADINGS ===== */
 h1 {
@@ -282,30 +278,6 @@ footer::before {
   letter-spacing: 4px;
 }
 
-/* ===== COMMON ANIMATIONS ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* ===== CONTACT MODAL ===== */
 .modal-overlay {
